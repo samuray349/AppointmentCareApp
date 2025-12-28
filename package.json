@@ -1,0 +1,23 @@
+{
+  "name": "appointmentcareapp",
+  "version": "1.0.0",
+  "description": "AppointmentCareApp - A Node.js and Express application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "appointment",
+    "care",
+    "express",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {}
+}
+

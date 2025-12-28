@@ -1,0 +1,52 @@
+### AppointmentCareApp API Test Requests
+### Use this file with REST Client extension in VS Code or similar tools
+
+@baseUrl = http://localhost:3000
+
+### Health Check
+GET {{baseUrl}}/api/health
+
+### Get all appointments
+GET {{baseUrl}}/api/appointments
+
+### Create a new appointment
+POST {{baseUrl}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientName": "John Doe",
+  "date": "2024-01-15",
+  "time": "10:00 AM",
+  "reason": "Annual checkup",
+  "doctor": "Dr. Johnson"
+}
+
+### Create another appointment
+POST {{baseUrl}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientName": "Jane Smith",
+  "date": "2024-01-16",
+  "time": "2:30 PM",
+  "reason": "Follow-up consultation"
+}
+
+### Get appointment by ID (replace :id with actual ID)
+GET {{baseUrl}}/api/appointments/1
+
+### Update appointment (replace :id with actual ID)
+PUT {{baseUrl}}/api/appointments/1
+Content-Type: application/json
+
+{
+  "time": "11:00 AM",
+  "status": "confirmed"
+}
+
+### Delete appointment (replace :id with actual ID)
+DELETE {{baseUrl}}/api/appointments/1
+
+### Test invalid route
+GET {{baseUrl}}/api/invalid
+
