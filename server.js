@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 // MySQL Database Configuration
 const dbConfig = {
   host: 'localhost',
-  port: 3307,
+  port: 3306,
   user: 'admin',
   password: 'password',
   database: 'appointmentcare'

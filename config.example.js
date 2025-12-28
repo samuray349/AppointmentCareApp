@@ -3,9 +3,9 @@
 
 module.exports = {
   host: 'localhost',
-  port: 3307,
-  user: 'root',        // Your MySQL username
-  password: '',        // Your MySQL password
+  port: 3306,
+  user: 'admin',        // Your MySQL username
+  password: 'password',        // Your MySQL password
   database: 'appointmentcare'
 };
 
