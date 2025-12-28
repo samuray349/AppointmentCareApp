@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 
 // Root route
 app.get('/', (req, res) => {
-  res.json({ 
+  /*res.json({ 
     message: 'Bem vindo ao AppointmentCareApp',
     status: 'Server is running',
     database: 'Connected to MySQL (appointmentcare)',
@@ -69,7 +69,8 @@ app.get('/', (req, res) => {
       'GET /api/neighbourhoods/:id': 'Get neighbourhood by ID',
       'GET /api/health': 'Health check'
     }
-  });
+  });*/
+  res.sendFile(__dirname + '/index.html');
 });
 
 // Home
