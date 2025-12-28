@@ -32,6 +32,16 @@ app.get('/', (req, res) => {
   });
 });
 
+// Home
+app.get('/home', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+// Tabela Admin
+app.get('/dashboard', (req, res) => {
+  res.sendFile(__dirname + '/dashboard.html');
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ 
