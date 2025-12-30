@@ -111,7 +111,7 @@ app.get('/api/health', async (req, res) => {
 });
 
 // ==================== APPOINTMENT ENDPOINTS ====================
-
+/*
 // Get all appointments
 app.get('/api/appointments', async (req, res) => {
   try {
@@ -129,7 +129,7 @@ app.get('/api/appointments', async (req, res) => {
       error: error.message
     });
   }
-});
+});*/
 
 // Get appointment by ID
 app.get('/api/appointments/:id', async (req, res) => {
@@ -165,6 +165,41 @@ app.get('/api/appointments/:id', async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Error fetching appointment',
+      error: error.message
+    });
+  }
+});
+
+app.get('/api/appointments', async (req, res) => {
+  try {
+    // A query SQL faz a ligação entre as 4 tabelas
+    const query = `
+      SELECT 
+        a.id_appointment,
+        a.appointment_date,
+        a.scheduled_date,
+        a.status,
+        a.sms_sent,
+        p.name AS pacient_name,
+        d.name AS doctor_name,
+        s.name AS speciality_name
+      FROM appointment a
+      LEFT JOIN pacient p ON a.pacient_id = p.id_pacient
+      LEFT JOIN doctor d ON a.doctor_id = d.id_doctor
+      LEFT JOIN speciality s ON d.speciality_id = s.id_speciality
+      ORDER BY a.appointment_date DESC
+    `;
+
+    const [rows] = await pool.execute(query);
+    
+    // Enviamos apenas o array de linhas (rows) para facilitar a leitura no frontend
+    res.json(rows); 
+
+  } catch (error) {
+    console.error('Error fetching appointments:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error fetching appointments',
       error: error.message
     });
   }
