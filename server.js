@@ -83,6 +83,11 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(__dirname + '/dashboard.html');
 });
 
+// criar consulta
+app.get('/insert', (req, res) => {
+  res.sendFile(__dirname + '/insert.html');
+});
+
 // Login
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + '/login.html');
@@ -111,25 +116,6 @@ app.get('/api/health', async (req, res) => {
 });
 
 // ==================== APPOINTMENT ENDPOINTS ====================
-/*
-// Get all appointments
-app.get('/api/appointments', async (req, res) => {
-  try {
-    const [rows] = await pool.execute('SELECT * FROM appointment');
-    res.json({
-      success: true,
-      count: rows.length,
-      data: rows
-    });
-  } catch (error) {
-    console.error('Error fetching appointments:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Error fetching appointments',
-      error: error.message
-    });
-  }
-});*/
 
 // Get appointment by ID
 app.get('/api/appointments/:id', async (req, res) => {
